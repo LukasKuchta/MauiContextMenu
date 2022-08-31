@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:vm="clr-namespace:MauiContextMenu.ViewModels.ContextMenu.Base"
+                    xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <mct:BoolToObjectConverter x:Key="BoolToObjectConverter"
+                               TrueObject="{x:StaticResource Active}"
+                               FalseObject="{x:StaticResource Inactive}" />
+
+    <ControlTemplate x:Key="ContextMenuPageTemplate">
+        <Grid BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:ContextMenuPageViewModelBase}}}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.08*" />
+                    <RowDefinition Height="0.8*" />
+                    <RowDefinition Height="0.05*" />
+                </Grid.RowDefinitions>
+
+                <BoxView Color="{x:StaticResource AppColorPrimary}" />
+                <Label Margin="70,0,0,0"
+                       Text="{Binding Title}"
+                       TextColor="{x:StaticResource AppColorSecondary}"
+                       FontSize="18"
+                       VerticalOptions="Center" />
+
+                <Button Margin="5,0,0,0"
+                       Text=">"
+                        Rotation="180"
+                       Command="{Binding GoBackCommand}"
+                       WidthRequest="40"
+                        BackgroundColor="Transparent"
+                       TextColor="{x:StaticResource AppColorSecondary}"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+
+                
+
+                    <Button BackgroundColor="Transparent"
+                            TextColor="{x:StaticResource AppColorSecondary}"
+                            Text="..."
+                            Rotation="90"
+                            
+                              IsVisible="{Binding HasContextMenu}"
+                            Command="{Binding ToggleContextMenuCommand}"
+                            HorizontalOptions="End" />
+                
+
+                <ContentPresenter Grid.Row="1" />
+
+                <BoxView Grid.Row="2"
+                         Color="{x:StaticResource AppColorSecondary}" />
+
+                <BoxView Grid.Row="2"
+                         VerticalOptions="Start"
+                         HeightRequest="1"
+                         Color="{x:StaticResource AppColorPrimary}" />
+
+                <Label Grid.Row="2"                       
+                       Text="Monkey Boy"                       
+                      TextColor="{x:StaticResource AppColorPrimary}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <Grid BackgroundColor="{x:StaticResource MenuOverlay}"
+                  IsVisible="{Binding IsContextMenuVisible}">
+
+                <VerticalStackLayout Grid.Row="1"
+                                     BindableLayout.ItemsSource="{Binding ContextMenuViewModel.MenuItems}"
+                                     BindableLayout.ItemTemplateSelector="{x:StaticResource ctxMenuItemTemplateSelector}"
+                                     VerticalOptions="End"
+                                     x:Name="contextMenuOverlay" >
+                </VerticalStackLayout>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ToggleContextMenuCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

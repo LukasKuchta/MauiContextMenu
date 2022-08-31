@@ -1,0 +1,27 @@
+﻿using MauiContextMenu.ViewModels.ContextMenu;
+
+namespace MauiContextMenu.DataTemplates
+{
+    public class ContextMenuItemDataTemplateSelector : DataTemplateSelector
+    {
+        public DataTemplate HeaderDataTemplate { get; set; }
+        public DataTemplate ItemDataTemplate { get; set; }
+        public DataTemplate ExpandableItemDataTemplate { get; set; }
+
+        protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
+        {
+            if (item is ContextMenuHeaderViewModel) 
+            {
+                return HeaderDataTemplate;
+            }
+
+            
+            if ((item is ContextMenuItemViewModel x) && x.HasSubMenu)
+            {
+                return ExpandableItemDataTemplate;
+            }
+
+            return ItemDataTemplate;
+        }
+    }
+}

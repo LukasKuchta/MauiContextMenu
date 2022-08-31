@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Page2"
+             xmlns:local="clr-namespace:MauiContextMenu"
+             xmlns:vm="clr-namespace:MauiContextMenu.ViewModels"
+             Shell.NavBarIsVisible="False"
+             ControlTemplate="{x:StaticResource ContextMenuPageTemplate}"
+             x:DataType="vm:Page2ViewModel"            
+             Title="{Binding Title}">
+    
+    <Grid>
+        <Label             
+            Text="Add content here!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </Grid>
+    
+</ContentPage>
