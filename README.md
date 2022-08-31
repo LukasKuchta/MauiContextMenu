@@ -6,6 +6,8 @@ Project contains two diffrent imlpementations of menu.
 - Page2 - CRUD operations with danger element
 - Page3 - no context menu available
 
+
+Libs
 - MAUI community toolkit
 - VMHelpers by James Montemagno
 - MVVM community toolkit
