@@ -1,5 +1,4 @@
 ﻿using MauiContextMenu.Services;
-using MauiContextMenu.ViewModels.ContextMenu;
 using MauiContextMenu.ViewModels.ContextMenu.Base;
 using MauiContextMenu.ViewModels.ContextMenu.Impl;
 

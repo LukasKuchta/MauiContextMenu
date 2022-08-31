@@ -1,5 +1,7 @@
 MAUI example of context menu.MVVM, 100% XAML based. 
 
+Check wiki page for demo
+
 Project contains two diffrent imlpementations of menu. 
 
 - Page1 - expandable contexte menu
