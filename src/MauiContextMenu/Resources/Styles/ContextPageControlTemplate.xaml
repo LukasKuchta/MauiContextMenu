@@ -9,6 +9,8 @@
                                TrueObject="{x:StaticResource Active}"
                                FalseObject="{x:StaticResource Inactive}" />
 
+    <mct:IsNotNullConverter x:Key="IsNotNullConverter" />
+
     <ControlTemplate x:Key="ContextMenuPageTemplate">
         <Grid BindingContext="{Binding Source={RelativeSource AncestorType={x:Type vm:ContextMenuPageViewModelBase}}}">
 
@@ -37,17 +39,16 @@
                        HorizontalOptions="Start"
                        VerticalOptions="Center" />
 
-                
 
-                    <Button BackgroundColor="Transparent"
+
+                <Button BackgroundColor="Transparent"
                             TextColor="{x:StaticResource AppColorSecondary}"
                             Text="..."
                             Rotation="90"
-                            
-                              IsVisible="{Binding HasContextMenu}"
+                            IsVisible="{Binding ContextMenuViewModel,Converter={x:StaticResource IsNotNullConverter}}"
                             Command="{Binding ToggleContextMenuCommand}"
                             HorizontalOptions="End" />
-                
+
 
                 <ContentPresenter Grid.Row="1" />
 
@@ -59,8 +60,8 @@
                          HeightRequest="1"
                          Color="{x:StaticResource AppColorPrimary}" />
 
-                <Label Grid.Row="2"                       
-                       Text="Monkey Boy"                       
+                <Label Grid.Row="2"
+                       Text="Monkey Boy"
                       TextColor="{x:StaticResource AppColorPrimary}"
                        HorizontalOptions="Center"
                        VerticalOptions="Center" />

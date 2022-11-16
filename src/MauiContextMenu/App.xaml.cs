@@ -1,5 +1,5 @@
 ﻿using MauiApp1;
-using MauiContextMenu.ViewModels;
+using MauiContextMenu.ViewModels.Page;
 
 namespace MauiContextMenu;
 

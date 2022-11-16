@@ -1,6 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MauiContextMenu.ViewModels.ContextMenu.Base;
-public partial class ContextMenuItemViewModelBase : ObservableObject
+public abstract partial class ContextMenuItemViewModelBase : ObservableObject
 {
+    [ObservableProperty]
+    private string _name;
+
+    [ObservableProperty]
+    private bool _isSeparatorVisible = false;
 }

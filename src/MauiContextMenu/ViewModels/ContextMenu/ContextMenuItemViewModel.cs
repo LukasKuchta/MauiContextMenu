@@ -3,14 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using MauiContextMenu.ViewModels.ContextMenu.Base;
 
 namespace MauiContextMenu.ViewModels.ContextMenu;
-public partial class ContextMenuItemViewModel : ContextMenuItemViewModelBase
+public abstract partial class ContextMenuItemViewModel : ContextMenuItemViewModelBase
 {
-    [ObservableProperty]
-    MvvmHelpers.ObservableRangeCollection<ContextMenuItemViewModelBase> _subMenuItems = new MvvmHelpers.ObservableRangeCollection<ContextMenuItemViewModelBase>();
-
-    [ObservableProperty]
-    private bool _itemTapped;
-
     [RelayCommand]
     private async Task MenuItemTapped(ContextMenuPageViewModelBase pageViewModel)
     {
@@ -19,14 +13,14 @@ public partial class ContextMenuItemViewModel : ContextMenuItemViewModelBase
             ItemTapped = true;
             await Task.Run(async () => await Task.Delay(200));
 
-            if (pageViewModel != null)
+            if (pageViewModel is not null)
             {
                 if (HasSubMenu)
                 {
                     IsExpanded = !IsExpanded;
                 }
                 else
-                {                    
+                {
                     await pageViewModel.OnItemMenuTapped(this);
                 }
             }
@@ -35,17 +29,27 @@ public partial class ContextMenuItemViewModel : ContextMenuItemViewModelBase
     }
 
     [ObservableProperty]
+    private IList<ContextMenuItemViewModelBase> _subMenuItems = new List<ContextMenuItemViewModelBase>();
+
+    [ObservableProperty]
+    private bool _itemTapped;
+
+    [ObservableProperty]
     private bool _isExpanded;
 
     [ObservableProperty]
-    private string _icon;
-
-    [ObservableProperty]
-    private string _name;
+    private string _icon;   
 
     [ObservableProperty]
     private bool _isDangerous;
 
+    public abstract string Id { get; }
+
     public bool HasSubMenu { get => SubMenuItems.Count > 0; }
-    public ContextMenuActions ContextMenuAction { get; init; }
+
+    public ContextMenuItemViewModel AddSubMenuItem(ContextMenuItemViewModelBase subMenuItem)
+    {
+        SubMenuItems.Add(subMenuItem);
+        return this;
+    }
 }

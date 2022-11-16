@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MauiContextMenu.Services;
+using MauiContextMenu.Services.Navigation;
+using MauiContextMenu.ViewModels.Page;
 
 namespace MauiContextMenu.ViewModels
 {
@@ -14,7 +15,7 @@ namespace MauiContextMenu.ViewModels
         }
 
         [RelayCommand]
-        private async Task GoToPage1() 
+        private async Task GoToPage1()
         {
             await _navigationService.NavigateToAsync(nameof(Page1ViewModel));
         }
@@ -22,7 +23,6 @@ namespace MauiContextMenu.ViewModels
         [RelayCommand]
         private async Task GoToPage2()
         {
-            
             await _navigationService.NavigateToAsync(nameof(Page2ViewModel));
         }
 

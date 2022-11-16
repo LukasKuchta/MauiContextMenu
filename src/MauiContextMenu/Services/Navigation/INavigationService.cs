@@ -1,4 +1,4 @@
-﻿namespace MauiContextMenu.Services;
+﻿namespace MauiContextMenu.Services.Navigation;
 
 public interface INavigationService
 {

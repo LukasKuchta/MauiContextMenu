@@ -10,12 +10,11 @@ namespace MauiContextMenu.DataTemplates
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            if (item is ContextMenuHeaderViewModel) 
+            if (item is ContextMenuHeaderViewModel)
             {
                 return HeaderDataTemplate;
             }
 
-            
             if ((item is ContextMenuItemViewModel x) && x.HasSubMenu)
             {
                 return ExpandableItemDataTemplate;

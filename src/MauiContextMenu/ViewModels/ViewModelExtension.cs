@@ -1,4 +1,6 @@
-﻿namespace MauiContextMenu.ViewModels;
+﻿using MauiContextMenu.ViewModels.Page;
+
+namespace MauiContextMenu.ViewModels;
 
 public static class PageExtension
 {

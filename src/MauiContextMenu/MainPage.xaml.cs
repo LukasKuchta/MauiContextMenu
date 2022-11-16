@@ -1,4 +1,5 @@
 ﻿using MauiContextMenu.Services;
+using MauiContextMenu.Services.Navigation;
 using MauiContextMenu.ViewModels;
 
 namespace MauiContextMenu;

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:MauiContextMenu.ViewModels.ContextMenu.Base"             
-             xmlns:tr="clr-namespace:MauiContextMenu.Controls.Triggers"             
+             xmlns:vm="clr-namespace:MauiContextMenu.ViewModels.ContextMenu.Base"
+             xmlns:tr="clr-namespace:MauiContextMenu.Controls.Triggers"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MauiContextMenu.Controls.ContextMenuItemContentView">
     <ContentView.Resources>
         <ResourceDictionary>
             <x:Int16 x:Key="zeroAngle">0</x:Int16>
             <x:Int16 x:Key="expandedAngle">90</x:Int16>
-            
+            <x:Double x:Key="separatorHeight">0.1</x:Double>
+
             <mct:BoolToObjectConverter x:Key="BoolToAngleConverter"
                                        TrueObject="{x:StaticResource expandedAngle}"
                                        FalseObject="{x:StaticResource zeroAngle}" />
@@ -17,12 +18,16 @@
             <mct:BoolToObjectConverter x:Key="BoolToColorConverter"
                                        TrueObject="{x:StaticResource Dangerous}"
                                        FalseObject="{x:StaticResource MenuItemText}" />
+
+            <mct:BoolToObjectConverter x:Key="BoolToSeparatorVisibilityConverter"
+                                       TrueObject="{x:StaticResource separatorHeight}"
+                                       FalseObject="0" />
         </ResourceDictionary>
     </ContentView.Resources>
 
 
     <Grid BackgroundColor="White"
-          HeightRequest="40" 
+          HeightRequest="40"
           tr:ItemReleasedTriggerAction.OriginalTextColor="{Binding IsDangerous,Converter={x:StaticResource BoolToColorConverter}}">
         <Grid.Triggers>
             <DataTrigger TargetType="Grid" Binding="{Binding ItemTapped}" Value="True">
@@ -43,21 +48,21 @@
         <Label Text="{Binding Icon}"
                Style="{StaticResource ctxItemLableStyle}"
                Margin="10,0,0,0" />
-        <Label 
+        <Label
                x:Name="labelItemName"
                Text="{Binding Name}"
-               Grid.Column="1"                            
+               Grid.Column="1"
                Margin="10,0,0,0"
                TextColor="{Binding IsDangerous,Converter={x:StaticResource BoolToColorConverter}}"
                HorizontalOptions="Start"
                Style="{StaticResource ctxItemLableStyle}" />
 
-        <Label             
+        <Label
                Text=">"
                Grid.Column="1"
                FontSize="20"
                Rotation="{Binding IsExpanded,Converter={x:StaticResource BoolToAngleConverter}}"
-               Margin="0,0,10,0"       
+               Margin="0,0,10,0"
                VerticalOptions="Center"
                IsVisible="{Binding HasSubMenu}"
                HorizontalOptions="End"  />
@@ -65,13 +70,12 @@
         <BoxView VerticalOptions="End"
                  BackgroundColor="{x:StaticResource ExpanderColor}"
                  Grid.ColumnSpan="2"
-                 HeightRequest="0.1" />
+                 HeightRequest="{Binding IsSeparatorVisible, Converter={x:StaticResource BoolToSeparatorVisibilityConverter}}" />
 
         <Grid.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding MenuItemTappedCommand}"                                  
+            <TapGestureRecognizer Command="{Binding MenuItemTappedCommand}"
                                   CommandParameter="{Binding Source={x:RelativeSource AncestorType={x:Type vm:ContextMenuPageViewModelBase}},Path=.}" />
         </Grid.GestureRecognizers>
     </Grid>
 </ContentView>
 
-    

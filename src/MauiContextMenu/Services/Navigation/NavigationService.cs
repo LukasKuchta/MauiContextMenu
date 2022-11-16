@@ -1,7 +1,7 @@
-﻿namespace MauiContextMenu.Services;
+﻿namespace MauiContextMenu.Services.Navigation;
 
 public class NavigationService : INavigationService
-{   
+{
     public Task NavigateToAsync(string route, IDictionary<string, object> routeParameters = null)
     {
         var shellNavigation = new ShellNavigationState(route);

@@ -6,9 +6,6 @@ namespace MauiContextMenu.ViewModels.ContextMenu;
 public partial class ContextMenuViewModelBase : ObservableObject
 {
     [ObservableProperty]
-    private MvvmHelpers.ObservableRangeCollection<ContextMenuItemViewModelBase> _menuItems;
-
-    [ObservableProperty]
-    private string _contextMenuTitle;
+    private IList<ContextMenuItemViewModelBase> _menuItems;
 }
 
