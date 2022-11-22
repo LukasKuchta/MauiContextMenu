@@ -7,8 +7,5 @@ public class UpdateMenuItem : ContextMenuItemViewModel
         Icon = "ic1";
         Name = "Update";
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(UpdateMenuItem);
 }
 

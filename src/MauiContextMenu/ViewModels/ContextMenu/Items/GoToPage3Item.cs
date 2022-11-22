@@ -1,13 +1,14 @@
-﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
+﻿using MauiContextMenu.Services.Navigation;
+using MauiContextMenu.ViewModels.Page;
+
+namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
 public class GoToPage3MenuItem : ContextMenuItemViewModel
 {
-    public GoToPage3MenuItem(int actionId)
+    public GoToPage3MenuItem(INavigationService navigationService)
     {
         Icon = "ic4";
         Name = "Go to page3";
+        MenuItemTappedAction = async () => { await navigationService.NavigateToAsync(nameof(Page3ViewModel)); };
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(GoToPage3MenuItem);
 }

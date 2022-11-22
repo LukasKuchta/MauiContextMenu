@@ -7,7 +7,4 @@ public class InsertMenuItem : ContextMenuItemViewModel
         Icon = "ic3";
         Name = "Insert";
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(InsertMenuItem);
 }

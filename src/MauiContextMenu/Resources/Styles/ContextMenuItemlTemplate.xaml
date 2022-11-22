@@ -7,9 +7,9 @@
                     xmlns:controls="clr-namespace:MauiContextMenu.Controls"
                     xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    
+
     <x:Int16 x:Key="imageSize">32</x:Int16>
-    
+
     <Style TargetType="Label"
            x:Key="ctxItemLableStyle">
         <Setter Property="TextColor"
@@ -36,7 +36,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="menuHeaderTemplate">
-        <Label Text="{Binding HeaderTitle}"
+        <Label Text="{Binding Name}"
                HeightRequest="25"
                BackgroundColor="{x:StaticResource AppColorPrimary}"
                TextColor="{x:StaticResource AppColorSecondary}"
@@ -51,5 +51,4 @@
                                                    HeaderDataTemplate="{x:StaticResource menuHeaderTemplate}"
                                                    ItemDataTemplate="{x:StaticResource menuItemTemplate}"
                                                    ExpandableItemDataTemplate="{x:StaticResource expandableItemTemplate}" />
-
 </ResourceDictionary>

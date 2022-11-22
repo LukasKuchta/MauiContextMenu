@@ -1,13 +1,16 @@
-﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
+﻿using MauiContextMenu.Services.Navigation;
+
+namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
 public class GoBackMenuItem : ContextMenuItemViewModel
 {
-    public GoBackMenuItem()
+    public GoBackMenuItem(INavigationService navigationService)
     {
         Icon = "ic5";
         Name = "Back";
+        MenuItemTappedAction = async () =>
+        {
+            await navigationService.PopAsync();
+        };
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(GoBackMenuItem);
 }

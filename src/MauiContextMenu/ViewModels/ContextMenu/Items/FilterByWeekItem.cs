@@ -9,7 +9,4 @@ public class FilterByWeekMenuItem : ContextMenuItemViewModel
         Name = "By week";
         IsSeparatorVisible = true;
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(FilterByWeekMenuItem);
 }

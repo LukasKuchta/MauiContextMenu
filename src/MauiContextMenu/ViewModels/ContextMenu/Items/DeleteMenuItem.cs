@@ -8,9 +8,5 @@ public class DeleteMenuItem : ContextMenuItemViewModel
         Name = "Delete";
         IsDangerous = true;
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(DeleteMenuItem);
-
 }
 

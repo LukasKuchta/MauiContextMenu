@@ -13,25 +13,4 @@ public partial class Page1ViewModel : ContextMenuPageViewModelBase
     {
         Title = "Monkey list";
     }
-
-    public override async Task OnItemMenuTapped(ContextMenuItemViewModel item)
-    {
-        await base.OnItemMenuTapped(item);
-
-        switch (item.Id)
-        {
-            case GoBackMenuItem.ActionId:
-                await GoBackCommand.ExecuteAsync(null);
-                break;
-            case GoToPage3MenuItem.ActionId:
-                await GoToPage3();
-                break;
-        }
-    }
-
-    private async Task GoToPage3()
-    {
-        await NavigationService.NavigateToAsync(nameof(Page3ViewModel));
-    }
-
 }

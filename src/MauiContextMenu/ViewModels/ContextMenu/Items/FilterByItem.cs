@@ -8,7 +8,4 @@ public class FilterByMenuItem : ContextMenuItemViewModel
         Name = "Filter";
         IsSeparatorVisible = true;
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(FilterByMenuItem);
 }

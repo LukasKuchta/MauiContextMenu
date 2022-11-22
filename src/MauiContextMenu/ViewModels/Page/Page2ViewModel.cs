@@ -19,10 +19,13 @@ public class Page2ViewModel : ContextMenuPageViewModelBase
         Builder builder = Builder.CreateBuilder();
         builder.AddHeaderItem("Page 2 menu");
         builder.AddMenuItem(new InsertMenuItem());
-        builder.AddMenuItem(new UpdateMenuItem());
+        builder.AddMenuItem(new UpdateMenuItem())
+                //.AddHeaderItem("Sub header")
+                .AddSubMenuItem(new DynamicMenuItem("aaa", () => { return Task.CompletedTask; }))
+                .AddSubMenuItem(new InsertMenuItem());
         builder.AddMenuItem(new DeleteMenuItem());
         builder.AddHeaderItem("Other section");
-        builder.AddMenuItem(new GoBackMenuItem());
+        builder.AddMenuItem(new GoBackMenuItem(NavigationService));
 
         return builder.Build();
     }

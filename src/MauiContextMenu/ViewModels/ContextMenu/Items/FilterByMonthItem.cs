@@ -7,7 +7,4 @@ public class FilterByMonthMenuItem : ContextMenuItemViewModel
         Icon = "ic";
         Name = "By month";
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(FilterByMonthMenuItem);
 }

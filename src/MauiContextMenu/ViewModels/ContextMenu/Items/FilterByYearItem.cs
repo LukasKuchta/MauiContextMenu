@@ -8,7 +8,4 @@ internal class FilterByYearMenuItem
         Icon = "ic2";
         Name = "By year";
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(FilterByYearMenuItem);
 }

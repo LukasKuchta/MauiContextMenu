@@ -7,7 +7,4 @@ public class FilterByDayMenuItem : ContextMenuItemViewModel
         Icon = "ic2";
         Name = "By day";
     }
-
-    public override string Id => ActionId;
-    public const string ActionId = nameof(FilterByDayMenuItem);
 }
