@@ -31,13 +31,6 @@ public abstract partial class ContextMenuItemViewModel : ContextMenuItemViewMode
     public virtual bool HideContextMenuAfterTap { get => !HasSubMenu; }
     public Func<Task> MenuItemTappedAction { get; set; } = null;
 
-    public ContextMenuItemViewModel AddSubMenuItem(ContextMenuItemViewModel subMenuItem)
-    {
-        subMenuItem.ParentItem = this;
-        SubMenuItems.Add(subMenuItem);
-        return this;
-    }
-
     [RelayCommand]
     private async Task MenuItemTapped(ContextMenuPageViewModelBase pageViewModel)
     {

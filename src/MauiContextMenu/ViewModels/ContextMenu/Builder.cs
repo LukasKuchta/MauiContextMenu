@@ -4,11 +4,12 @@ namespace MauiContextMenu.ViewModels.ContextMenu;
 
 public class Builder
 {
-    private IList<ContextMenuItemViewModelBase> _menuItems;
-
+    private ContextMenuItemViewModel _lastItem;
+    private ContextMenuViewModelBase _menu;
     private Builder()
     {
-        _menuItems = new List<ContextMenuItemViewModelBase>();
+        _menu = new ContextMenuViewModelBase();
+        _menu.MenuItems = new List<ContextMenuItemViewModelBase>();
     }
 
     public static Builder CreateBuilder()
@@ -18,21 +19,31 @@ public class Builder
 
     public Builder AddHeaderItem(string headerTitle)
     {
-        _menuItems.Add(new ContextMenuHeaderViewModel(headerTitle));
+        _menu.MenuItems.Add(new ContextMenuHeaderViewModel(headerTitle));
         return this;
     }
 
-    public ContextMenuItemViewModel AddMenuItem(ContextMenuItemViewModel menuItem)
+    public Builder AddSubMenuItem(ContextMenuItemViewModel subMenuItem)
     {
-        _menuItems.Add(menuItem);
-        return menuItem;
+        if (_lastItem is not null)
+        {
+            _menu.AddSubMenuItem(_lastItem, subMenuItem);
+        }
+
+        return this;
+    }
+
+    public Builder AddMenuItem(ContextMenuItemViewModel menuItem)
+    {
+        _lastItem = menuItem;
+        _menu.AddMenuItem(menuItem);
+        return this;
     }
 
     public ContextMenuViewModelBase Build()
     {
-        ContextMenuViewModelBase menu = new ContextMenuViewModelBase();
-        menu.MenuItems = _menuItems;
-        return menu;
+        _lastItem = null;
+        return _menu;
     }
 }
 

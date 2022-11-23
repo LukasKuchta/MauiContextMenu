@@ -8,6 +8,16 @@ public partial class ContextMenuViewModelBase : ObservableObject
     [ObservableProperty]
     private IList<ContextMenuItemViewModelBase> _menuItems;
 
+    public bool AddMenuItem(ContextMenuItemViewModelBase menuItem)
+    {
+        if (_menuItems is not null)
+        {
+            _menuItems.Add(menuItem);
+            return true;
+        }
+        return false;
+    }
+
     public bool AddSubMenuItem(ContextMenuItemViewModel root, ContextMenuItemViewModel subItem)
     {
         if (MenuItems is not null)
