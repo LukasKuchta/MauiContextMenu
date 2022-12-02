@@ -1,7 +1,7 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
 internal class FilterByYearMenuItem
-: ContextMenuItemViewModel
+: ItemContextMenuViewModel
 {
     public FilterByYearMenuItem()
     {

@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class DynamicMenuItem : ContextMenuItemViewModel
+public class DynamicMenuItem : ItemContextMenuViewModel
 {
     public int ContentId { get; set; }
 

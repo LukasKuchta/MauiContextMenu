@@ -18,7 +18,7 @@ public partial class ContextMenuViewModelBase : ObservableObject
         return false;
     }
 
-    public bool AddSubMenuItem(ContextMenuItemViewModel root, ContextMenuItemViewModel subItem)
+    public bool AddSubMenuItem(ItemContextMenuViewModel root, ItemContextMenuViewModel subItem)
     {
         if (MenuItems is not null)
         {

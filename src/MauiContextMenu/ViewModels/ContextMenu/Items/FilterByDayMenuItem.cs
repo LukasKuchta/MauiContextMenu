@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class FilterByDayMenuItem : ContextMenuItemViewModel
+public class FilterByDayMenuItem : ItemContextMenuViewModel
 {
     public FilterByDayMenuItem()
     {

@@ -4,7 +4,7 @@ namespace MauiContextMenu.ViewModels.ContextMenu;
 
 public class Builder
 {
-    private ContextMenuItemViewModel _lastItem;
+    private ItemContextMenuViewModel _lastItem;
     private ContextMenuViewModelBase _menu;
     private Builder()
     {
@@ -19,11 +19,11 @@ public class Builder
 
     public Builder AddHeaderItem(string headerTitle)
     {
-        _menu.MenuItems.Add(new ContextMenuHeaderViewModel(headerTitle));
+        _menu.MenuItems.Add(new HeaderContextMenuViewModel(headerTitle));
         return this;
     }
 
-    public Builder AddSubMenuItem(ContextMenuItemViewModel subMenuItem)
+    public Builder AddSubMenuItem(ItemContextMenuViewModel subMenuItem)
     {
         if (_lastItem is not null)
         {
@@ -33,7 +33,7 @@ public class Builder
         return this;
     }
 
-    public Builder AddMenuItem(ContextMenuItemViewModel menuItem)
+    public Builder AddMenuItem(ItemContextMenuViewModel menuItem)
     {
         _lastItem = menuItem;
         _menu.AddMenuItem(menuItem);

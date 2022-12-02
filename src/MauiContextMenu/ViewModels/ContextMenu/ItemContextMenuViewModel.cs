@@ -4,7 +4,7 @@ using MauiContextMenu.ViewModels.ContextMenu.Base;
 using MvvmHelpers;
 
 namespace MauiContextMenu.ViewModels.ContextMenu;
-public abstract partial class ContextMenuItemViewModel : ContextMenuItemViewModelBase
+public abstract partial class ItemContextMenuViewModel : ContextMenuItemViewModelBase
 {
     [ObservableProperty]
     private bool _isSeparatorVisible = false;
@@ -21,7 +21,7 @@ public abstract partial class ContextMenuItemViewModel : ContextMenuItemViewMode
     [ObservableProperty]
     private bool _isDangerous;
 
-    public ContextMenuItemViewModel ParentItem { get; set; }
+    public ItemContextMenuViewModel ParentItem { get; set; }
 
     [ObservableProperty]
     private ObservableRangeCollection<ContextMenuItemViewModelBase> _subMenuItems = new ObservableRangeCollection<ContextMenuItemViewModelBase>();

@@ -2,9 +2,9 @@
 
 namespace MauiContextMenu.ViewModels.ContextMenu;
 
-public partial class ContextMenuHeaderViewModel : ContextMenuItemViewModelBase
+public partial class HeaderContextMenuViewModel : ContextMenuItemViewModelBase
 {
-    public ContextMenuHeaderViewModel(string naheaderTitleme)
+    public HeaderContextMenuViewModel(string naheaderTitleme)
     {
         Name = naheaderTitleme;
     }

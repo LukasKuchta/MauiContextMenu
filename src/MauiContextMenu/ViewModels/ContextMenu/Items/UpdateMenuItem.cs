@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class UpdateMenuItem : ContextMenuItemViewModel
+public class UpdateMenuItem : ItemContextMenuViewModel
 {
     public UpdateMenuItem()
     {

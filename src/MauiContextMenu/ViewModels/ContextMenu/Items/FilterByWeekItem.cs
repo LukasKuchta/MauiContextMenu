@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class FilterByWeekMenuItem : ContextMenuItemViewModel
+public class FilterByWeekMenuItem : ItemContextMenuViewModel
 
 {
     public FilterByWeekMenuItem()

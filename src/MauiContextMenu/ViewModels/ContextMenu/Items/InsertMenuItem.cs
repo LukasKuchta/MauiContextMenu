@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class InsertMenuItem : ContextMenuItemViewModel
+public class InsertMenuItem : ItemContextMenuViewModel
 {
     public InsertMenuItem()
     {

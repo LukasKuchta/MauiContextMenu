@@ -3,7 +3,7 @@ using MauiContextMenu.ViewModels.Page;
 
 namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class GoToPage3MenuItem : ContextMenuItemViewModel
+public class GoToPage3MenuItem : ItemContextMenuViewModel
 {
     public GoToPage3MenuItem(INavigationService navigationService)
     {

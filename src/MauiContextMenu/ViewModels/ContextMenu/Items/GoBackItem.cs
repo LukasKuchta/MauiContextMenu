@@ -2,7 +2,7 @@
 
 namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class GoBackMenuItem : ContextMenuItemViewModel
+public class GoBackMenuItem : ItemContextMenuViewModel
 {
     public GoBackMenuItem(INavigationService navigationService)
     {

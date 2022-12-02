@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class AddSubItemMenuItem : ContextMenuItemViewModel
+public class AddSubItemMenuItem : ItemContextMenuViewModel
 {
     public AddSubItemMenuItem(Func<Task> action)
     {

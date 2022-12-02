@@ -1,6 +1,6 @@
 ﻿namespace MauiContextMenu.ViewModels.ContextMenu.Items;
 
-public class DeleteMenuItem : ContextMenuItemViewModel
+public class DeleteMenuItem : ItemContextMenuViewModel
 {
     public DeleteMenuItem()
     {

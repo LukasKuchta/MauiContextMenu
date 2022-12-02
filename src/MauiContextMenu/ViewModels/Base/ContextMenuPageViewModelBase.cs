@@ -36,7 +36,7 @@ public abstract partial class ContextMenuPageViewModelBase : PageViewModelBase
             ((List<ContextMenuItemViewModelBase>)ContextMenuViewModel.MenuItems)
                 .ForEach(it =>
                 {
-                    if ((it is ContextMenuItemViewModel i) && i.IsExpanded)
+                    if ((it is ItemContextMenuViewModel i) && i.IsExpanded)
                     {
                         i.IsExpanded = false;
                     }
@@ -51,7 +51,7 @@ public abstract partial class ContextMenuPageViewModelBase : PageViewModelBase
     /// </summary>
     /// <param name="item">Tapped item</param>
     /// <returns></returns>
-    public virtual async Task<bool> OnItemMenuTapped(ContextMenuItemViewModel item)
+    public virtual async Task<bool> OnItemMenuTapped(ItemContextMenuViewModel item)
     {
         if (item.HideContextMenuAfterTap)
         {
@@ -66,7 +66,7 @@ public abstract partial class ContextMenuPageViewModelBase : PageViewModelBase
                 continue;
             }
 
-            if (baseItem is ContextMenuItemViewModel it)
+            if (baseItem is ItemContextMenuViewModel it)
             {
                 if (it != item && it.IsExpanded)
                 {
@@ -108,7 +108,7 @@ public abstract partial class ContextMenuPageViewModelBase : PageViewModelBase
         // create content
         int contentId = new Random().Next(1000);
         // add item
-        ContextMenuViewModel.AddSubMenuItem((ContextMenuItemViewModel)(ContextMenuViewModel.MenuItems[1]), new DynamicMenuItem("Dynamic ...", async () =>
+        ContextMenuViewModel.AddSubMenuItem((ItemContextMenuViewModel)(ContextMenuViewModel.MenuItems[1]), new DynamicMenuItem("Dynamic ...", async () =>
         {
             await Task.Delay(100);
             Console.WriteLine($"Dynamic {contentId}");
